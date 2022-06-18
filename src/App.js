@@ -1,22 +1,32 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useState } from "react"
 
 function App() {
+
+    const [mode, setMode] = useState({
+      name: "Dark",
+      boolean: true
+  })
+
+  const toggleLD = () => {
+      if(mode.boolean === true) setMode({
+          name: "Light",
+          boolean: false
+      })
+      if(mode.boolean === false ) setMode({
+          name: "Dark",
+          boolean: true
+      })
+  }
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header className={mode}>
+      <button className={mode.name} onClick={() => toggleLD()}>{mode.name}</button>
+        <h1>
+          My name is Kristian Acevedo
+        </h1>
       </header>
     </div>
   );
