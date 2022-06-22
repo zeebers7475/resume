@@ -1,31 +1,128 @@
-.App {
-  text-align: center;
+@keyframes drive {
+  0%{left: -50%}
+  50%{left:50%}
+  100%{left:100%}
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+@keyframes wheel {
+  0%{transform:rotate(720deg)}
+  50%{transform:rotate(0deg)}
+  100%{transform: rotate(-360deg);}
+}
+
+#body {
+  background: linear-gradient(0deg, rgba(246, 249, 249, 0.3), rgba(255, 246, 251, 0.3)), url("C:\Users\LordS\Code\Kacevedo\resume\src\Road.avif") no-repeat scroll center;
+  background-size: cover;
+}
+
+#body.Dark{
+  background: linear-gradient(0deg, rgba(20, 15, 18, 0.3), rgba(49, 38, 44, 0.3)), url("C:\Users\LordS\Code\Kacevedo\resume\src\Space.jpg") no-repeat scroll center;
+  background-size: cover;
 }
 
 .Dark {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  background-color: transparent;
+  /* background-color: #282c34; */
   color: white;
 }
 
 .Light {
-  background-color: #d7d3cb;
+  background-color: transparent;
+  /* background-color: #fffbf4; */
+  color: black;
+}
+
+.Nav {
+  width:100%;
+  position:fixed;
+  overflow: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  scroll-snap-type: x mandatory;
+}
+
+.Nav a {
+  padding:1rem;
+  flex-shrink: 0;
+  scroll-snap-align: start;
+}
+
+.Nav button {
+  border: none;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  padding: 1rem;
+}
+
+.ScrollNav {
+  width:100%;
+  position:fixed;
+  top:10%;
+  text-align: center;
+  margin:0
+}
+
+.Header {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: black;
+  text-align: center;
+}
+
+/* .Space {
+  background: url("C:\Users\LordS\Code\Kacevedo\resume\src\Space.jpg") no-repeat scroll;
+  background-position: center 0%;
+}
+
+.Space2 {
+  background: url("C:\Users\LordS\Code\Kacevedo\resume\src\Space.jpg") no-repeat scroll;
+  background-position: center 30%;
+}
+
+.Earth {
+  background: url("C:\Users\LordS\Code\Kacevedo\resume\src\Space.jpg") no-repeat scroll;
+  background-position: center 42.5%;
+}
+
+.Earth2 {
+  background: url("C:\Users\LordS\Code\Kacevedo\resume\src\Space.jpg") no-repeat scroll;
+  background-position: center 55%;
+} */
+
+.LDButton {
+  position:fixed;
+  top: 0;
+  right: 0;
+  margin:.5rem;
+}
+
+.Title{
+  width:80%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.SVGContainer {
+  overflow-x:hidden;
+}
+
+svg{
+  width:50%;
+  height:auto;
+  position:relative;
+  animation: drive 5s ease-in-out 2s infinite;
+  left:-50%
+}
+
+#Wheel{
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: wheel 5s ease-in-out 2s infinite;
 }
