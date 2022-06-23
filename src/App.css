@@ -32,6 +32,10 @@
   color: black;
 }
 
+a.Light {
+  color: black;
+}
+
 .Nav {
   width:100%;
   position:fixed;
@@ -74,26 +78,6 @@
   text-align: center;
 }
 
-/* .Space {
-  background: url("C:\Users\LordS\Code\Kacevedo\resume\src\Space.jpg") no-repeat scroll;
-  background-position: center 0%;
-}
-
-.Space2 {
-  background: url("C:\Users\LordS\Code\Kacevedo\resume\src\Space.jpg") no-repeat scroll;
-  background-position: center 30%;
-}
-
-.Earth {
-  background: url("C:\Users\LordS\Code\Kacevedo\resume\src\Space.jpg") no-repeat scroll;
-  background-position: center 42.5%;
-}
-
-.Earth2 {
-  background: url("C:\Users\LordS\Code\Kacevedo\resume\src\Space.jpg") no-repeat scroll;
-  background-position: center 55%;
-} */
-
 .LDButton {
   position:fixed;
   top: 0;
@@ -125,4 +109,47 @@ svg{
   transform-box: fill-box;
   transform-origin: center;
   animation: wheel 5s ease-in-out 2s infinite;
+}
+
+.RModal {
+  min-height: 100vh;
+  width:100%;
+  position: fixed;
+  top:0;
+  left:0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  text-align: center;
+  z-index: 1000
+}
+
+.RModal.Dark, .InnerModal.Dark{
+  background-color:rgba(0, 0, 0, 0.7);
+}
+
+.RModal.Light, .InnerModal.Light{
+  background-color:rgba(255, 255, 255, 0.7);
+}
+
+.InnerModal{
+  padding: 1rem;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+}
+
+.RTitle{
+  text-align: center;
+}
+
+.Close{
+  align-self: end;
+  font-weight: bold;
+  font-size: 24px;
+  border-radius: 50%;
+  border:none;
+
 }

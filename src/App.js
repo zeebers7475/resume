@@ -1,6 +1,7 @@
 import './App.css';
 import React, { useState, useEffect } from "react"
 import CafeRacer from "./Components/CafeRacer"
+import Resume from './Components/Resume'
 
 function App() {
 
@@ -40,6 +41,8 @@ function App() {
         })
       }
   }
+
+  const [RModal, setRModal] = useState("")
 
   const [scrollMessage, setScrollMessage] = useState("")
 
@@ -135,17 +138,17 @@ function App() {
   return (
     <div onresize={() => console.log(window.innerWidth)}>
       <nav className={"Nav " + mode.name}>
-          <a>Home</a>
-          <a>Resume</a>
-          <a>Portfolio</a>
-          <a>Contact</a>
+          <button>Home</button>
+          <button onClick={() => setRModal(<Resume mode={mode} RModal={RModal} close={setRModal}/>)}>Resume</button>
+          <button>Portfolio</button>
+          <button>Contact</button>
           <button className="" onClick={() => toggleLD()}>{mode.switch}</button>
       </nav>
       <ShowMessage />
       
       <header className={"Header Space " + mode.name}>
         <h1 className="Title" style={style.line1}>
-          My name is Kristian Acevedo, I am a Web Developer.
+          My name is Kristian Acevedo, and I am a Web Developer.
         </h1>
       </header>
       <header className={"Header Space2 " +  mode.name}>
@@ -155,7 +158,7 @@ function App() {
       </header>
       <header className={"Header Earth " +  mode.name}>
         <h1 className="Title" style={style.line3}>
-          As an entrepreneur I started my own business named KIC Web Design.
+          As an entrepreneur I started my own business named<br/> <a className={mode.name} href="KICWebDesign.com" target="_blank" rel="noopener noreferrer">KIC Web Design</a>.
         </h1>
       </header>
       <header className={"Header Earth2 " + mode.name}>
@@ -166,7 +169,10 @@ function App() {
       <div className="SVGContainer">
         <CafeRacer /> 
       </div>    
+      {RModal}
     </div>
+
+    
   );
 }
 
